@@ -1,0 +1,83 @@
+{
+  "name": "angel-one-trading-bots",
+  "version": "2.0.0",
+  "description": "Separated Grid and DCA Trading Bots with Centralized Data Service for Angel One Smart API",
+  "type": "module",
+  "scripts": {
+    "start:data": "node data-service/server.js",
+    "start:grid": "wait-on http://localhost:3000/health && node grid-server/server.js",
+    "start:dca": "wait-on http://localhost:3000/health && node dca-server/server.js",
+    "start:all": "concurrently \"npm run start:data\" \"npm run start:grid\" \"npm run start:dca\"",
+    "dev:data": "nodemon data-service/server.js",
+    "dev:grid": "wait-on http://localhost:3000/health && nodemon grid-server/server.js",
+    "dev:dca": "wait-on http://localhost:3000/health && nodemon dca-server/server.js",
+    "dev:all": "concurrently \"npm run dev:data\" \"npm run dev:grid\" \"npm run dev:dca\"",
+    "build": "echo \"No build step required for Node.js services\"",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rm -rf node_modules package-lock.json && npm install",
+    "logs:data": "pm2 logs data-service",
+    "logs:grid": "pm2 logs grid-service",
+    "logs:dca": "pm2 logs dca-service",
+    "logs:all": "pm2 logs",
+    "stop:all": "pm2 stop all",
+    "restart:all": "pm2 restart all",
+    "pm2:start": "pm2 start ecosystem.config.js",
+    "pm2:stop": "pm2 stop ecosystem.config.js",
+    "pm2:restart": "pm2 restart ecosystem.config.js",
+    "health:check": "curl -f http://localhost:3000/health && curl -f http://localhost:3001/health && curl -f http://localhost:3002/health"
+  },
+  "keywords": [
+    "angel-one",
+    "smart-api",
+    "grid-trading",
+    "dca-trading",
+    "dollar-cost-averaging",
+    "algorithmic-trading",
+    "automated-trading",
+    "nifty-50",
+    "stock-market",
+    "live-data",
+    "historical-data",
+    "trading-bot",
+    "microservices",
+    "websocket",
+    "real-time-trading",
+    "data-service"
+  ],
+  "author": "Trading Bot Developer",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.9.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^4.21.2",
+    "mongoose": "^8.15.1",
+    "node-cron": "^3.0.3",
+    "nodemailer": "^7.0.3",
+    "os": "^0.1.2",
+    "otplib": "^12.0.1",
+    "public-ip": "^7.0.1",
+    "smartapi-javascript": "^1.0.27",
+    "socket.io": "^4.8.1",
+    "socket.io-client": "^4.8.1",
+    "ws": "^8.14.2"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "nodemon": "^3.0.1",
+    "pm2": "^5.3.0",
+    "wait-on": "^7.2.0"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/angel-one-trading-bots.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/angel-one-trading-bots/issues"
+  },
+  "homepage": "https://github.com/your-username/angel-one-trading-bots#readme"
+}
