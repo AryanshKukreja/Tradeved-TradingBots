@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import GRID from "./components/Pages/GRID";
+import "./App.css";
+import DCA from "./components/Pages/DCA";
+
 
 function App() {
+  const [darkMode, setDarkMode] = useState(true);
+
+  const toggleTheme = () => setDarkMode((prev) => !prev);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={darkMode ? "app dark" : "app"}>
+      <Router>
+        <Navbar darkMode={darkMode} toggleTheme={toggleTheme} />
+        <main className="main-content">
+          <Routes>
+            <Route path="/" element={<GRID />} />
+            <Route path="/dca" element={<DCA />} />
+          </Routes>
+        </main>
+      </Router>
     </div>
   );
 }

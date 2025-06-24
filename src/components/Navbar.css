@@ -1,0 +1,129 @@
+/* Navbar */
+.navbar {
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  padding: 0 24px;
+  height: 64px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow);
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.brand {
+  font-family: 'Raleway', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--accent-yellow);
+  letter-spacing: -0.5px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 8px;
+}
+
+/* NavLink styles */
+.nav-links a {
+  font-family: 'Raleway', sans-serif;
+  color: var(--text-secondary);
+  background: none;
+  border: none;
+  padding: 8px 16px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.2s, background 0.2s;
+  display: inline-block;
+}
+
+.nav-links a:hover {
+  color: var(--text-primary);
+  background: var(--bg-tertiary);
+}
+
+.nav-links a.active {
+  color: #242620;
+  background: var(--accent-yellow);
+}
+
+/* Remove button styles if not using buttons in nav-links */
+/*
+.nav-links button {
+  font-family: 'Raleway', sans-serif;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  padding: 8px 16px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+
+.nav-links button:hover {
+  color: var(--text-primary);
+  background: var(--bg-tertiary);
+}
+
+.nav-links button.active {
+  color: #242620;
+  background: var(--accent-yellow);
+}
+*/
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.theme-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: var(--radius);
+  transition: all 0.2s ease;
+}
+
+.theme-btn:hover {
+  background: var(--bg-tertiary);
+}
+
+.user-badge {
+  width: 32px;
+  height: 32px;
+  background: var(--accent-yellow);
+  color: #242620;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* Responsive Design for Navbar */
+@media (max-width: 992px) {
+  .navbar {
+    padding: 0 16px;
+  }
+  
+  .nav-links {
+    display: none;
+  }
+}
